@@ -1,0 +1,51 @@
+//cursor.execute("SELECT substr(timestamp, 12,2) AS Visits_Time_TO_Atmosfear,COUNT(*)
+FROM
+	checkin
+WHERE attraction='8'
+GROUP BY Visits_Time_TO_Atmosfear
+ORDER BY Visits_Time_TO_Atmosfear DESC")
+	
+Visits_Time_TO_Atmosfear=cursor.fetchall()
+timeStats = pd.DataFrame.from_records(Visits_Time_TO_Atmosfear, columns=['Visits_Time_TO_Atmosfear'¡A'number'])
+
+
+seqStats['sequence'] = seqStats['sequence'].apply(lambda y: [1 if i == str(attractionID) else 0 for i in y.split("-")])
+
+visit=[]
+visit= np.sum(timeStats['number'].values.tolist(), axis=0)
+x_axis = range(0, 24, 24)
+
+plt.plot(x_axis, visit)
+plt.title('Attendance at Atmosfear Ride every 60 minutes')
+plt.xlabel('Time (hour)')
+plt.ylabel('visit')
+
+plt.show()
+//
+
+cursor.execute("SELECT AttractionID FROM attraction WHERE Name='Atmosfear'")
+attractionID=cursor.fetchone()[0]
+
+
+cursor.execute("SELECT sequence FROM sequences WHERE sequence LIKE '%8%'")
+sequences = cursor.fetchall()
+seqStats = pd.DataFrame.from_records(sequences, columns=['sequence'])
+
+seqStats['sequence'] = seqStats['sequence'].apply(lambda y: [1 if i == str(attractionID) else 0 for i in y.split("-")])
+
+
+visitorCount = np.sum(seqStats['sequence'].values.tolist(), axis=0)
+
+
+x_axis = range(0, 193*5, 5)
+visitorCount_for_1day = []
+
+for i in range(len(x_axis)):
+    visitorCount_for_1day.append(visitorCount[i])
+
+plt.plot(x_axis, visitorCount_for_1day)
+plt.title('Attendance at Atmosfear Ride every five minutes')
+plt.xlabel('Time (min)')
+plt.ylabel('Attendance')
+
+plt.show()
