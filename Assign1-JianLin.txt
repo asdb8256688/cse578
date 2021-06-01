@@ -6,7 +6,7 @@ GROUP BY Visits_Time_TO_Atmosfear
 ORDER BY Visits_Time_TO_Atmosfear DESC")
 	
 Visits_Time_TO_Atmosfear=cursor.fetchall()
-timeStats = pd.DataFrame.from_records(Visits_Time_TO_Atmosfear, columns=['Visits_Time_TO_Atmosfear'�A'number'])
+timeStats = pd.DataFrame.from_records(Visits_Time_TO_Atmosfear, columns=['Visits_Time_TO_Atmosfear'¡A'number'])
 
 
 seqStats['sequence'] = seqStats['sequence'].apply(lambda y: [1 if i == str(attractionID) else 0 for i in y.split("-")])
@@ -42,7 +42,38 @@ visitorCount_for_1day = []
 
 for i in range(len(x_axis)):
     visitorCount_for_1day.append(visitorCount[i])
+Question 1 : 描绘游览惊险飞车（thrill ride）景点的饼图。
+Answer:读题目，1.用AttractionID把attraction和checkin连接起来
+               2.选择Name并用COUNT计数
+			   3.将返回的记录转换为DataFrame格式
+			   4.DataFrame中指定“值”和标签，画饼图，
+			   5.写标题
+			   6.输出图形
+Output：pie chart
 
+
+
+Question 2 : 描绘美食摊位（food stall）总访问量的柱状图。
+Answer：思路和1题一样，区别是标出x，y轴，然后把xticks里美食摊位的名字旋转否则会重叠。	
+
+Output：bar chart
+
+
+
+
+Question 3 : 描绘一天之中参加最新游乐项目 Atmosfear 的折线图。A Line Chart depicting attendance at the newest ride, Atmosfear over the course of the day.
+Answer：思路，选三天的数据进行分析，这样避免误差，再用substr(timestamp,12,2)截取timestamp里每小时的数据，最后画出图像。
+        1.注意到attraction='8'是Atmosfear的AttractionID，将其选出并按时间排序，得到Hour和count数据
+		2.将其输出为画x和y轴
+		3.输出图像
+Output：
+
+
+
+Question 4 : 描绘游乐场的儿童碰碰车（Kiddie Rides）总游览量的箱线图。
+Answer：仿照课件里的程序，选择Name并用COUNT计数，输出图形即可
+
+Output：boxplot
 plt.plot(x_axis, visitorCount_for_1day)
 plt.title('Attendance at Atmosfear Ride every five minutes')
 plt.xlabel('Time (min)')
