@@ -1,0 +1,23 @@
+Question 1 :针对这 5 名游客构造一个距离矩阵。五名游客的编号为：165316、1835254、296394、404385 和 448990。
+Answer:读题目，1.在sequence里选出指定编号的visitors和sequence数据；
+               2.将返回的记录转换为DataFrame格式；
+			   3.处理sequence数据，将按3分钟的attendance序列分割成列表；
+			   4.用两个循环存储距离矩阵，如果同一时刻visitor a和visitor b 坐标不相等，则将visitor a和visitor b 之间的距离distance+1；
+			   5.输出图形
+
+
+Question 2 : draw thehe minimum (non-zero) attendance at each ride, the average attendance over the whole day, and the maximum attendance for each ride on a Parallel Coordinate Plot.
+Answer：1.先选出符合要求的sequence和ID数据
+        2.如第一题，对seq进行分割，并留下第一天的数据；
+        3.将seq里的ID和RideID进行对比，如果符合则置1，否则置0
+        4.累加所有的ID积累attendance，用np的内置函数计算min maximum，average
+        5.把ride名称和min，max,ave append到result列表里
+        6.输出图像    
+
+
+
+
+
+Question 3 : 描绘一天之中参加最新游乐项目 Atmosfear 的折线图。A Line Chart depicting attendance at the newest ride, Atmosfear over the course of the day.
+Answer：和第二题样分割，输出成scatter matrix即可
+
