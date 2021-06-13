@@ -1,0 +1,13 @@
+Question 1 :create a control chart of the total attendance at “Atmosfear” which displaying the attendance, the mean, and the standard deviation bands at one and two standard deviations.
+Answer:读题目，1.在sequence里，对每个Visitor选出“Atmosfear”的序列，然后计数，并计算每个interval “Atmosfear”的total attendance
+               2.计算均值，标准差；结果处理为DataFrame格式
+	           3.按要求画control chart
+
+Question 2 create a moving average chart of the attendance using 50 samples for the size of the moving average window.
+Answer：1.如题1，画moving average chart
+
+
+
+
+Question 3 : create a control chart of the total attendance at “Atmosfear” which displaying the attendance, the mean, and the standard deviation bands at one and two standard deviations.
+Answer：和第2题一样，画EMA，数据清洗时，会将带空值的行删除，此时DataFrame或Series类型的数据不再是连续的索引需要重置索引df_Atmos.reset_index(drop=True)
